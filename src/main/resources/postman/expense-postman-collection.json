@@ -1,0 +1,45 @@
+{
+  "info": {
+    "name": "Expense API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Expense",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ownerId\": \"user123\",\n  \"category\": \"Food\",\n  \"description\": \"Lunch at cafe\",\n  \"amount\": 150.75,\n  \"createdAt\": null\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/expenses",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "expenses"]
+        }
+      }
+    },
+    {
+      "name": "Get Expense By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8082/api/expenses/{{expenseId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "expenses", "{{expenseId}}"]
+        }
+      }
+    }
+  ]
+}
