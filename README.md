@@ -34,6 +34,7 @@ cd finance-mgmt-expense
 * [http://localhost:8082/v3/api-docs](http://localhost:8082/v3/api-docs)
 * [http://localhost:8082/v3/api-docs.yaml](http://localhost:8082/v3/api-docs.yaml)
 
+Swagger specifications: expense-openapi.yaml You can also import the provided expense-postman-collection.json into Postman or any API tool.
 ---
 
 ## Endpoints
