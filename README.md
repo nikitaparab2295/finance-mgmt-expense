@@ -1,52 +1,73 @@
 # Expense Service
 
-The **Expense Service** manages expenses and contacts the **Budget Service** to check  
-budget usage. It also notifies the **Notification Service** when thresholds (80%, 100%) are crossed.
+The **Expense Service** manages expenses and contacts the **Budget Service** to check budget usage.
+It also notifies the **Notification Service** when thresholds (80% and 100%) are crossed.
 
 ---
 
-## 🚀 Tech Stack
-- Spring Boot 3.5.8
-- Java + Gradle
-- Spring Data JPA + H2
-- Feign Client (Budget + Notification services)
-- Springdoc OpenAPI (Swagger)
-- Docker / Docker Compose
+## Tech Stack
+
+* Spring Boot 3.5.8
+* Java + Gradle
+* Spring Data JPA + H2
+* Feign Client (Budget + Notification services)
+* Springdoc OpenAPI (Swagger)
+* Docker / Docker Compose
 
 ---
 
-## ▶️ Run Locally
+## Run Locally
 
 ```bash
-cd expense
+cd finance-mgmt-expense
 ./gradlew bootRun
+```
 
-Runs on:
-👉 http://localhost:8082
+**Service runs at:**
+[http://localhost:8082](http://localhost:8082)
 
-📘 Swagger Docs
-👉 http://localhost:8082/swagger-ui.html
-👉 http://localhost:8082/v3/api-docs
-👉 http://localhost:8082/v3/api-docs.yaml
+---
 
-📮 Endpoints
-POST /expenses
-GET /expenses/{id}
+## API Documentation (Swagger)
 
-Budget check happens automatically:
-If expense causes > 80% usage → warning
-If expense exceeds 100% → alert
+* [http://localhost:8082/swagger-ui.html](http://localhost:8082/swagger-ui.html)
+* [http://localhost:8082/v3/api-docs](http://localhost:8082/v3/api-docs)
+* [http://localhost:8082/v3/api-docs.yaml](http://localhost:8082/v3/api-docs.yaml)
 
-🐳 Docker Instructions
+---
+
+## Endpoints
+
+* **POST** `/expenses`
+* **GET** `/expenses/{id}`
+
+### Budget Check Logic
+
+* If an expense causes usage to exceed **80%** → a warning is triggered
+* If an expense causes usage to exceed **100%** → an alert is triggered
+
+---
+
+## Docker
+
+```bash
 docker build -t expense .
 docker-compose up
+```
 
-🗃️ H2 Database
-URL: http://localhost:8082/h2-console
+---
 
-JDBC: jdbc:h2:mem:expensedb
+## H2 Database
 
-✔️ Tests
-Run tests:
+URL: [http://localhost:8082/h2-console](http://localhost:8082/h2-console)
+**JDBC URL:** `jdbc:h2:mem:expensedb`
+
+---
+
+## Tests
+
+Run tests using:
+
+```bash
 ./gradlew test
-
+```
