@@ -49,15 +49,6 @@ You can also import the provided expense-postman-collection.json into Postman or
 
 ---
 
-## Docker
-
-```bash
-docker build -t expense .
-docker-compose up
-```
-
----
-
 ## H2 Database
 
 URL: [http://localhost:8082/h2-console](http://localhost:8082/h2-console)
@@ -72,3 +63,10 @@ Run tests using:
 ```bash
 ./gradlew test
 ```
+
+---
+
+## Docker Instructions
+docker build -t finance-mgmt-expense .
+
+docker run -p 8082:8082 finance-mgmt-expense
